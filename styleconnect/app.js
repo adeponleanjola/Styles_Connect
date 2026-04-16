@@ -1,4 +1,4 @@
-   StyleConnect — app.js
+  //  StyleConnect — app.js
 
 
 // Data
