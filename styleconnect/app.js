@@ -158,7 +158,7 @@ document.getElementById('heroSearch').addEventListener('keydown', e => {
 });
 
 
-// Modal
+// Modal for Booking
 function openModal(name) {
   const accountTriggers = ['Customer', 'Professional', 'Join Free'];
   document.getElementById('modalTitle').textContent = accountTriggers.includes(name)
@@ -172,6 +172,8 @@ function openModal(name) {
 
   document.getElementById('modalOverlay').classList.add('active');
 }
+
+
 
 function closeModal() {
   document.getElementById('modalOverlay').classList.remove('active');
@@ -200,6 +202,37 @@ function confirmBooking() {
   showToast("✅ Booking confirmed! You'll receive a reminder.");
 }
 
+
+// Modal for Listing
+function openModal2(name) {
+  const accountTriggers = ['Customer','Professional', 'Join Free'];
+  document.getElementById('modalTitle1').textContent = accountTriggers.includes(name)
+    ? 'Create Account'
+    : `Book – ${name}`;
+
+  // Default date to tomorrow
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  document.getElementById('dateInput').value = tomorrow.toISOString().split('T')[0];
+
+  document.getElementById('modalOverlay1').classList.add('active');
+}
+
+// lis
+function handleOverlayClick1(e) {
+  if (e.target === document.getElementById('modalOverlay1')) closeModal();
+}
+
+// liss
+function closeModal() {
+  document.getElementById('modalOverlay1').classList.remove('active');
+}
+
+// Listing Confirmation
+function confirmListing() {
+  closeModal();
+  showToast("✅ Listing confirmed! You'll receive required access.");
+}
 
 // Toast Notification
 function showToast(msg) {
