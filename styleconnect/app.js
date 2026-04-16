@@ -218,15 +218,19 @@ function openModal2(name) {
   document.getElementById('modalOverlay1').classList.add('active');
 }
 
-// lis
+// Close Listing
+function closeModal2() {
+  document.getElementById('modalOverlay1').classList.remove('active');
+}
+
 function handleOverlayClick1(e) {
   if (e.target === document.getElementById('modalOverlay1')) closeModal();
 }
 
-// liss
-function closeModal() {
-  document.getElementById('modalOverlay1').classList.remove('active');
-}
+// Close Listing on Escape Key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
 
 // Listing Confirmation
 function confirmListing() {
