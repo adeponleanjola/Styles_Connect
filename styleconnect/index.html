@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleConnect – Beauty & Grooming Professionals Near You</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Style<span>Connect</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#professionals">Professionals</a></li>
+    <li><a href="#map">Near Me</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal('Join Free')">Get Started</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Lagos & Beyond</div>
+    <h1>Your <em>beauty</em> professional, nearby &amp; ready</h1>
+    <p>Book hair stylists, makeup artists, barbers, nail techs and more — based on location, availability and verified ratings.</p>
+    <div class="hero-search">
+      <input type="text" placeholder="Search haircut, braids, lashes…" id="heroSearch">
+      <button onclick="handleSearch()">Find Now</button>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">2,400+</div>
+        <div class="stat-label">Professionals</div>
+      </div>
+      <div>
+        <div class="stat-num">18k+</div>
+        <div class="stat-label">Bookings Made</div>
+      </div>
+      <div>
+        <div class="stat-num">4.8★</div>
+        <div class="stat-label">Avg. Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div style="position:relative">
+      <div class="float-badge a">📍 5km away</div>
+      <div class="float-badge b">✅ Appointment secured! </div>
+      <div class="mock-card">
+        <div class="mock-header">
+          <small>Professionals near you</small>
+          <h3>Showing 3 results · Ikoyi</h3>
+        </div>
+        <div class="mock-body">
+          <div class="pro-item">
+            <div class="pro-avatar" style="background:#FFF0E6">💇‍♀️</div>
+            <div class="pro-info">
+              <div class="pro-name">Nefertiti Hairplace</div>
+              <div class="pro-role">Hair Stylist · Braids &amp; Sew-ins</div>
+              <div class="stars">★★★★☆</div>
+            </div>
+            <div class="pro-dist">5km</div>
+          </div>
+          <div class="pro-item">
+            <div class="pro-avatar" style="background:#F0F5F0">💄</div>
+            <div class="pro-info">
+              <div class="pro-name">Glam &amp; Glow artistry</div>
+              <div class="pro-role">Makeup Artist · Bridal &amp; Shoots </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="pro-dist">7km</div>
+          </div>
+          <div class="pro-item">
+            <div class="pro-avatar" style="background:#F0F0FF">💅</div>
+            <div class="pro-info">
+              <div class="pro-name">The Blush Bar</div>
+              <div class="pro-role">Nail Tech · Biab &amp; Acrylic</div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="pro-dist">10km</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-tag">Services Available</div>
+  <h2 class="section-title">The complete beauty &amp; grooming experience.</h2>
+  <div class="services-grid">
+    <div class="service-card" onclick="filterPros('Hair Stylist')">
+      <div class="service-icon">💇‍♀️</div>
+      <div class="service-name">Hair Stylists</div>
+    </div>
+    <div class="service-card" onclick="filterPros('Makeup')">
+      <div class="service-icon">💄</div>
+      <div class="service-name">Makeup Artists</div>
+    </div>
+    <div class="service-card" onclick="filterPros('Nail Tech')">
+      <div class="service-icon">💅</div>
+      <div class="service-name">Nail Technicians</div>
+    </div>
+    <div class="service-card" onclick="filterPros('Barber')">
+      <div class="service-icon">💈</div>
+      <div class="service-name">Barbers</div>
+    </div>
+    <div class="service-card" onclick="filterPros('Lash')">
+      <div class="service-icon">👁️</div>
+      <div class="service-name">Lash &amp; Brow Technicians</div>
+    </div>
+    <div class="service-card" onclick="filterPros('Tattoo')">
+      <div class="service-icon">🎨</div>
+      <div class="service-name">Tattoo Artists</div>
+    </div>
+    <div class="service-card" onclick="filterPros('Henna')">
+      <div class="service-icon">🌿</div>
+      <div class="service-name">Henna Artists</div>
+    </div>
+    <div class="service-card" onclick="filterPros('Piercing')">
+      <div class="service-icon">💎</div>
+      <div class="service-name">Piercers</div>
+    </div>
+    <div class="service-card" onclick="filterPros('Supply')">
+      <div class="service-icon">🛍️</div>
+      <div class="service-name">Beauty Supply Stores</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-tag">How It Works</div>
+  <h2 class="section-title">Three steps to your next<br>beauty appointment</h2>
+  <div class="how-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h3>Search & Filter</h3>
+      <p>Search by service type, location, or rating. See who's available near you right now.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h3>View Profile & Book</h3>
+      <p>Check ratings, portfolio, and pricing. Pick a time slot and confirm your booking instantly.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h3>Get Served & Review</h3>
+      <p>Attend your appointment. Afterwards, leave a rating to help others find quality professionals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSIONALS -->
+<section class="pros" id="professionals">
+  <div class="section-tag">Top Rated</div>
+  <h2 class="section-title">Professionals near you</h2>
+  <div class="pros-grid" id="prosGrid">
+    <!-- Injected by JS -->
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section" id="map">
+  <div class="section-tag">Location</div>
+  <h2 class="section-title">Find beauty professionals<br>on the map</h2>
+  <div class="map-wrap">
+    <div class="map-mock">
+      <!-- Roads -->
+      <div class="map-road-h" style="top:35%"></div>
+      <div class="map-road-h" style="top:65%"></div>
+      <div class="map-road-v" style="left:30%"></div>
+      <div class="map-road-v" style="left:60%"></div>
+
+      <!-- User location -->
+      <div class="user-location" style="left:50%;top:52%">
+        <div class="user-pulse"></div>
+        <div class="user-dot"></div>
+      </div>
+
+      <!-- Pins -->
+      <div class="map-pin" style="left:31%;top:35%" onclick="openModal('Nefertiti Hairplace')">
+        <div class="pin-dot" style="background:#C9A84C"><span>💇‍♀️</span></div>
+        <div class="pin-label">Nefertiti · 0.3km</div>
+      </div>
+      <div class="map-pin" style="left:60%;top:35%" onclick="openModal('Glam & Glow artistry')">
+        <div class="pin-dot" style="background:#D4847A"><span>💄</span></div>
+        <div class="pin-label">G & G artistry · 0.7km</div>
+      </div>
+      <div class="map-pin" style="left:61%;top:65%" onclick="openModal('The Blush Bar')">
+        <div class="pin-dot" style="background:#7A9E87"><span>💅</span></div>
+        <div class="pin-label">Blush Bar · 1.2km</div>
+      </div>
+      <div class="map-pin" style="left:30%;top:65%" onclick="openModal('The Ballers Den')">
+        <div class="pin-dot" style="background:#5B8FA8"><span>💈</span></div>
+        <div class="pin-label">Ballers Den· 1.5km</div>
+      </div>
+      <div class="map-pin" style="left:45%;top:22%" onclick="openModal('Maison Muse')">
+        <div class="pin-dot" style="background:#A07DBE"><span>👁️</span></div>
+        <div class="pin-label">Maison Muse · 1.8km</div>
+      </div>
+
+      <!-- Controls -->
+      <div class="map-controls">
+        <button class="map-btn" title="Zoom in">+</button>
+        <button class="map-btn" title="Zoom out">−</button>
+        <button class="map-btn" title="My location">◎</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-tag">Customer Reviews</div>
+  <h2 class="section-title">What people are saying</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Found an amazing hair stylist 5 minutes away. The booking process was so smooth — no more back-and-forth on DMs!"</div>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:#FFF0E6">👩🏾</div>
+        <div>
+          <div class="reviewer-name">Jadwa</div>
+          <div class="reviewer-service">Hair Braiding · Maitama</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"As a barber, StyleConnect has literally tripled my client base. I love that customers can see my availability in real-time."</div>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:#F0F0FF">👨🏾</div>
+        <div>
+          <div class="reviewer-name">Malakai</div>
+          <div class="reviewer-service">Professional Barber · Ikeja</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-text">"Booked a makeup artist for my sister's wedding through StyleConnect. The artist was professional, on-time, and reasonably priced."</div>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:#F0F5F0">👩🏽</div>
+        <div>
+          <div class="reviewer-name">Oma</div>
+          <div class="reviewer-service">Bridal Makeup · Ikoyi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to look your best?</h2>
+  <p>Join thousands of customers and professionals already using StyleConnect across Nigeria.</p>
+  <div class="cta-btns">
+    <button class="btn-primary" onclick="openModal('Customer')">Book a Service</button>
+    <button class="btn-outline" onclick="openModal('Professional')">List Your Business</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="logo">Style<span>Connect</span></span>
+  <p>© 2025 StyleConnect · Group 10 · SEN201 Project · Connecting beauty professionals seamlessly.</p>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Book Appointment</h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input class="form-input" type="text" placeholder="e.g. Kamikun">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service</label>
+        <select class="form-select" id="serviceSelect">
+          <option>Hair Braiding</option>
+          <option>Sew-in</option>
+          <option>hair installation</option>
+          <option>Makeup – Full Glam</option>
+          <option>Nail Set</option>
+          <option>Haircut &amp; Fade</option>
+          <option>Lash Extensions</option>
+          <option>Henna Design</option>
+          <option>Traditional tattoo</option>
+          <option>Piercing</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Pick a Date</label>
+        <input class="form-input" type="date" id="dateInput">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Available Time Slots</label>
+        <div class="time-slots">
+          <button class="time-slot" onclick="selectSlot(this)">9:00 AM</button>
+          <button class="time-slot" onclick="selectSlot(this)">10:30 AM</button>
+          <button class="time-slot" onclick="selectSlot(this)">12:00 PM</button>
+          <button class="time-slot" onclick="selectSlot(this)">2:00 PM</button>
+          <button class="time-slot" onclick="selectSlot(this)">3:30 PM</button>
+          <button class="time-slot" onclick="selectSlot(this)">5:00 PM</button>
+        </div>
+      </div>
+      <button class="confirm-btn" onclick="confirmBooking()">Confirm Booking</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
