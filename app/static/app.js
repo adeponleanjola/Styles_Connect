@@ -6,7 +6,6 @@
 
 
 
-
 // Render Professionals
 function renderPros(list) {
   const grid = document.getElementById('prosGrid');
@@ -35,15 +34,14 @@ function renderPros(list) {
 
 // Filter / Search
 function filterPros(type) {
-  const filtered = allPros.filter(p =>
-    p.tags.some(t => t.toLowerCase().includes(type.toLowerCase())) ||
-    p.role.toLowerCase().includes(type.toLowerCase())
-  );
-  document.getElementById('professionals').scrollIntoView({ behavior: 'smooth' });
-  setTimeout(() => renderPros(filtered.length ? filtered : allPros), 300);
-  showToast(`Showing ${type} professionals`);
+  fetch(`/api/search?q=${type}`)
+    .then(res => res.json())
+    .then(results => {
+      document.getElementById('professionals').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => renderPros(results.length ? results : []), 300);
+      showToast(`Showing ${type} professionals`);
+    });
 }
-
 async function handleSearch() {
   const q = document.getElementById('heroSearch').value.trim();
   if (!q) return;
